@@ -115,49 +115,81 @@ namespace ExerciciosPOO
         #endregion
 
         #region exercicio 6
+        /* static void Main(string[] args)
+         {
+
+             Console.Write("Entre o número da conta: ");
+             int numero = int.Parse(Console.ReadLine());
+             Console.Write("Entre o titular da conta: ");
+             string titular = Console.ReadLine();
+             Console.Write("Haverá deposito inicial? (s/n) ");
+             char resp = char.Parse(Console.ReadLine());
+             Conta c;
+
+             if (resp == 's' || resp == 'S')
+             {
+                 Console.Write("Entre o valor de depósito inicial: ");
+                 double depositoInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                 c = new Conta (numero, titular, depositoInicial);
+             }
+             else
+             {
+
+                 c = new Conta(numero, titular);
+             }
+
+             Console.WriteLine();
+             Console.WriteLine("Dados da conta: ");
+             Console.WriteLine(c);
+
+             Console.Write("Entre um valor para deposito: ");
+             double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+             c.Deposito(quantia);
+             Console.WriteLine();
+             Console.WriteLine("Dados da conta atualizados: ");
+             Console.WriteLine(c);
+
+             Console.Write("Entre um valor para saque: ");
+             quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+             c.Saque(quantia);
+             Console.WriteLine();
+             Console.WriteLine("Dados da conta atualizados: ");
+             Console.WriteLine(c);
+         }*/
+        #endregion
+        #region exercicio 7
         static void Main(string[] args)
         {
-     
-            Console.Write("Entre o número da conta: ");
-            int numero = int.Parse(Console.ReadLine());
-            Console.Write("Entre o titular da conta: ");
-            string titular = Console.ReadLine();
-            Console.Write("Haverá deposito inicial? (s/n) ");
-            char resp = char.Parse(Console.ReadLine());
-            Conta c;
+            Console.Write("Quantos quartos serão alugados? ");
+            int n = int.Parse(Console.ReadLine());
 
-            if (resp == 's' || resp == 'S')
+            Aluguel[] array = new Aluguel[10]; //Quartos com posições de 0-9 
+
+            for (int i = 0; i < n; i++)
             {
-                Console.Write("Entre o valor de depósito inicial: ");
-                double depositoInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine("Aluguel #" + (i+1), ":");
+                Console.Write("Nome: ");
+                string name = Console.ReadLine();
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
+                Console.Write("Quarto: ");
+                int quarto = int.Parse(Console.ReadLine());
 
-                c = new Conta (numero, titular, depositoInicial);
-            }
-            else
-            {
+                array[quarto-1] = new Aluguel { Name = name, Email = email};
 
-                c = new Conta(numero, titular);
             }
 
-            Console.WriteLine();
-            Console.WriteLine("Dados da conta: ");
-            Console.WriteLine(c);
-
-            Console.Write("Entre um valor para deposito: ");
-            double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            c.Deposito(quantia);
-            Console.WriteLine();
-            Console.WriteLine("Dados da conta atualizados: ");
-            Console.WriteLine(c);
-
-            Console.Write("Entre um valor para saque: ");
-            quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            c.Saque(quantia);
-            Console.WriteLine();
-            Console.WriteLine("Dados da conta atualizados: ");
-            Console.WriteLine(c);
+            for (int i = 0; i < 10; i++) 
+            {                
+                if (array[i] != null)
+                {
+                    Console.WriteLine("Quartos Ocupados: ");
+                    Console.WriteLine(i+1 + ": " + array[i].Name + ", " + array[i].Email);
+                }
+            }  
         }
         #endregion
     }
